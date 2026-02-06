@@ -1,0 +1,10 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Disallow admin pages (if any)
+Disallow: /admin/
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://www.bumiresources.com/sitemap.xml
