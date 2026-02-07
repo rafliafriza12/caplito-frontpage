@@ -157,7 +157,7 @@ const Footer: React.FC<IFooterProps> = ({ variant = "primary" }) => {
     );
   } else {
     return (
-      <footer className="w-full bg-primary pb-5 ipad-vertical:pb-7.5 lg:pb-15 font-satoshi">
+      <footer className="w-full bg-primary p-5 ipad-vertical:p-7.5 lg:p-15 font-satoshi">
         <Container className="w-full flex flex-col gap-10 md:gap-15 px-4 md:px-6 bg-[#3F3D4F] rounded-4xl">
           <div className="w-full flex flex-col items-start gap-4 md:gap-6">
             <Link href={"/"} className="flex items-center gap-3 md:gap-5">

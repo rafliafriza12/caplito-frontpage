@@ -18,7 +18,7 @@ export const dataPolicydata: DataPolicySection[] = [
       </p>,
       <p key="intro-2">
         At Caplito, we believe your data should be treated the same way as your
-        money: with respect, transparency, and under your control.
+        money:with respect, transparency, and under your control.
       </p>,
       <p key="intro-3">
         This page explains what data we collect, why we collect it, and how we
@@ -154,7 +154,7 @@ export const dataPolicydata: DataPolicySection[] = [
     title: "Children’s Privacy",
     content: [
       <p key="cpriv-1">
-        Caplito is not intended for children under the age required by law.  We
+        Caplito is not intended for children under the age required by law. We
         don’t knowingly collect data from minors.
       </p>,
     ],

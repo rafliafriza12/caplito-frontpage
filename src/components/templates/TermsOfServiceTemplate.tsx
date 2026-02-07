@@ -5,7 +5,7 @@ import {
   termsOfServiceData,
   tableOfContents,
   TermsSection,
-} from "@/constant/terms-of-service";
+} from "@/constant/terms-of-service/data";
 import { useState, useEffect, useRef, ReactNode } from "react";
 
 const TermsOfServiceTemplate: React.FC = () => {

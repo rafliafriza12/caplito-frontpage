@@ -5,7 +5,7 @@ import {
   privacyPolicyData,
   tableOfContents,
   PrivacyPolicySection,
-} from "@/constant/privacy-policy";
+} from "@/constant/privacy-policy/data";
 import { useState, useEffect, useRef, ReactNode } from "react";
 
 const PrivacyPolicyTemplate: React.FC = () => {

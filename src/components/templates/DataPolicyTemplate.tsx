@@ -5,7 +5,7 @@ import {
   dataPolicydata,
   DataPolicySection,
   tableOfContents,
-} from "@/constant/data-policy";
+} from "@/constant/data-policy/data";
 import { useState, useEffect, useRef, ReactNode } from "react";
 
 const DataPolicyTemplate: React.FC = () => {
