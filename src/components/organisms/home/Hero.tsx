@@ -327,10 +327,11 @@ export function Hero() {
           ref={videoRef}
           className="w-full max-w-[95%] sm:max-w-[90%] md:max-w-[85%] ipad-horizontal:w-296.75 bg-[#6C5CE7]/50 rounded-xl md:rounded-[20px] overflow-hidden"
         >
-          <div className="w-full aspect-video">
+          <div className="w-full aspect-video ">
             <video
-              src="/vidio/Digital_Screen_Interface_Slot_Machine.mp4"
-              controls
+              src="/vidio/typed-@video-02062025.mp4"
+              autoPlay
+              loop
               className="w-full h-full object-cover"
             />
           </div>
