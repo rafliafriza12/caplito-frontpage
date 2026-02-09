@@ -169,7 +169,7 @@ export const testimonialData: ITestimonial[] = [
   {
     date: "15 December 2025",
     comment:
-      "I’d recommend this to founders who are tired of duct-taping payments together. It feels like something you can grow with instead of replace later.",
+      "I’ve tested dozens of wallets and payout systems. Most feel rushed or overengineered. This one felt intentional. The flow makes sense, fees are competitive, and  support actually responds like humans.",
     person: {
       imgUrl: "/img/testimonial/sarah-l.png",
       name: "Sarah L",
@@ -179,21 +179,20 @@ export const testimonialData: ITestimonial[] = [
   {
     date: "06 January 2026",
     comment:
-      "I'm not a tech guy. Didn't need to be. If I can figure it out, anyone can. And I still don't know how to airdrop photos.",
+      "Works at truck stops. Works at 2am. Works on my old phone. That's all I needed to know.",
     person: {
       imgUrl: "/img/testimonial/miguel-o.png",
       name: "Miguel O",
-      role: "General User",
+      role: "General Invite-Only User",
     },
   },
   {
     date: "26 January 2026",
-    comment:
-      "I work 11 hours a day. I don't have time to figure out an app. This one I didn't have to.",
+    comment: "No holds. No delays. No 'pending' for 3 days.",
     person: {
       imgUrl: "/img/testimonial/david-h.png",
-      name: "David H",
-      role: "General User",
+      name: "David K",
+      role: "General Invite-Only User",
     },
   },
   {
@@ -203,7 +202,55 @@ export const testimonialData: ITestimonial[] = [
     person: {
       imgUrl: "/img/testimonial/olivia-n.png",
       name: "Olivia N",
-      role: "General User",
+      role: "General Invite-Only User",
+    },
+  },
+  {
+    date: "15 December 2025",
+    comment: "My sister lives three states away. Felt like handing her cash",
+    person: {
+      imgUrl: "/img/testimonial/sarah-l.png",
+      name: "Kendra B",
+      role: "Product Professional",
+    },
+  },
+  {
+    date: "06 January 2026",
+    comment: "I'm not losing another weekend waiting for a transfer to clear.",
+    person: {
+      imgUrl: "/img/testimonial/miguel-o.png",
+      name: "John C",
+      role: "General Invite-Only User",
+    },
+  },
+  {
+    date: "26 January 2026",
+    comment:
+      "Works at truck stops. Works at 2am. Works on my old phone. That's all I needed to know",
+    person: {
+      imgUrl: "/img/testimonial/david-h.png",
+      name: "Dominiq V",
+      role: "General Invite-Only User",
+    },
+  },
+  {
+    date: "21 December 2025",
+    comment:
+      "I drive 11 hours a day. I don't have time to figure out an app. This one I didn't have to.",
+    person: {
+      imgUrl: "/img/testimonial/olivia-n.png",
+      name: "Ejike B",
+      role: "General Invite-Only User",
+    },
+  },
+  {
+    date: "21 December 2025",
+    comment:
+      "Quick math: faster money, fewer fees, less stress. That's it. Every day my money sits 'pending' is a day I'm not earning on it. Fixed that.",
+    person: {
+      imgUrl: "/img/testimonial/olivia-n.png",
+      name: "Allen C",
+      role: "General Invite-Only User",
     },
   },
 ];

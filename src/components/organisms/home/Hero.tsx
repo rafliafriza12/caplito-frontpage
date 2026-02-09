@@ -325,9 +325,9 @@ export function Hero() {
         </div>
         <div
           ref={videoRef}
-          className="w-full max-w-[95%] sm:max-w-[90%] md:max-w-[85%] ipad-horizontal:w-296.75 bg-[#6C5CE7]/50 rounded-xl md:rounded-[20px] overflow-hidden"
+          className="w-full max-w-[95%] sm:max-w-[90%] md:max-w-[85%] ipad-horizontal:w-296.75 bg-[#6C5CE7]/50 rounded-xl md:rounded-[20px] overflow-hidden border border-[#D1D1D1]"
         >
-          <div className="w-full aspect-video ">
+          <div className="w-full aspect-video">
             <video
               src="/vidio/typed-@video-02062025.mp4"
               autoPlay
