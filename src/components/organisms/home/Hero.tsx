@@ -332,6 +332,8 @@ export function Hero() {
               src="/vidio/typed-@video-02062025.mp4"
               autoPlay
               loop
+              muted
+              playsInline
               className="w-full h-full object-cover"
             />
           </div>
