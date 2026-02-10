@@ -55,6 +55,14 @@ export interface IFaqItems {
 
 export const faqItems: IFaqItems[] = [
   {
+    id: "what-does-the-word-caplito-mean",
+    title: "What does the word “Caplito” mean?",
+    content: `Cap- = Capital (your money, your leverage, your power)
+     -lito = A small, approachable suffix from Spanish/Italian 
+     
+    Caplito = Literally “Little Capital.” But in your hands? It’s power with teeth.  You don’t need a fortune to feel in control of your finances. You need Caplito—your own personal pot of money that’s easy to access, simple to manage, and smart by design.  Built for those who want big control over even the smallest stash.`,
+  },
+  {
     id: "what-is-caplito-and-how-does-it-work",
     title: "What is Caplito and how does it work?",
     content:

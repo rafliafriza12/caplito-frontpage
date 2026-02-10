@@ -154,7 +154,9 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
         )}
       >
         <div ref={contentRef} className=" pt-2.5 text-[#595959] ">
-          <p className=" text-base leading-[150%]">{item.content}</p>
+          <p className="whitespace-pre-line text-base leading-[150%]">
+            {item.content}
+          </p>
         </div>
       </div>
     </div>
