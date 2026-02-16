@@ -72,38 +72,37 @@ export const faqItems: IFaqItems[] = [
     id: "what-kind-of-money-does-caplito-use",
     title: "What kind of money does Caplito use?",
     content:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo unde rem architecto odit culpa ut tempora vitae ad molestias. Soluta quia quas sunt eaque voluptatibus fugit aperiam debitis accusamus unde!",
+      "Your money in Caplito is held as digital dollars. These digital dollars are backed one-for-one by real US dollars — meaning for every dollar in your Caplito account, there's a real dollar sitting in reserve. It works just like cash, but lives on your phone and moves at internet speed.",
   },
   {
     id: "what-happens-when-a-store-or-person-accepts-payment-through-caplito?",
     title:
       "What happens when a store or person accepts payment through Caplito?",
     content:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo unde rem architecto odit culpa ut tempora vitae ad molestias. Soluta quia quas sunt eaque voluptatibus fugit aperiam debitis accusamus unde!",
+      'When someone accepts a Caplito payment, they get the full value instantly — no waiting days for the money to "clear." Business owners can keep the money in their Caplito account or move it straight to their regular bank account whenever they want. It\'s their choice.',
   },
   {
     id: "is-my-money-safe-with-caplito",
     title: "Is my money safe with Caplito?",
     content:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo unde rem architecto odit culpa ut tempora vitae ad molestias. Soluta quia quas sunt eaque voluptatibus fugit aperiam debitis accusamus unde!",
+      "Yes — and here's the important part: your money belongs to you, not us. Caplito doesn't mix your funds with other people's money or hold it in some company account. Your balance sits in a wallet that only you control. We just give you the tools to move it around safely. You decide when to add money, take it out, or send it to someone else.",
   },
   {
     id: "does-caplito-charge-any-fees",
     title: "Does Caplito charge any fees?",
     content:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo unde rem architecto odit culpa ut tempora vitae ad molestias. Soluta quia quas sunt eaque voluptatibus fugit aperiam debitis accusamus unde!",
+      "Sending money to friends, family, or anyone else is completely free. If you want to add money to your Caplito account, our partner services may charge a small fee. And if you want to move money from Caplito back to your bank account, there's a 5% fee — which is standard in the industry.",
   },
   {
     id: "where-can-i-use-caplito",
     title: "Where can I use Caplito?",
-    content:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo unde rem architecto odit culpa ut tempora vitae ad molestias. Soluta quia quas sunt eaque voluptatibus fugit aperiam debitis accusamus unde!",
+    content: "Right now, Caplito works in the United States and Canada.",
   },
   {
     id: "are-there-limits-on-how-much-i-can-send-or-receive",
     title: "Are there limits on how much I can send or receive?",
     content:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo unde rem architecto odit culpa ut tempora vitae ad molestias. Soluta quia quas sunt eaque voluptatibus fugit aperiam debitis accusamus unde!",
+      "Caplito doesn't put limits on your money. You can send or receive as much as you want. However, your bank or card company might have their own daily limits. So if a payment doesn't go through, check with your bank first — it's usually on their end, not ours.",
   },
 ];
 

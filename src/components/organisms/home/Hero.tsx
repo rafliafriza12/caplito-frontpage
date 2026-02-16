@@ -305,7 +305,7 @@ export function Hero() {
               Send or Receive $1 Now
             </h1>
           </button>
-          <button className="bg-primary border border-[#6C5CE7] rounded-full w-full sm:w-auto sm:min-w-52 ipad-horizontal:w-63.75 h-12 md:h-14 flex items-center justify-center gap-1">
+          {/* <button className="bg-primary border border-[#6C5CE7] rounded-full w-full sm:w-auto sm:min-w-52 ipad-horizontal:w-63.75 h-12 md:h-14 flex items-center justify-center gap-1">
             <h1 className="leading-[120%] text-base md:text-lg font-medium tracking-[-0.6px] text-[#2A2932]">
               Find out more
             </h1>
@@ -321,7 +321,7 @@ export function Hero() {
                 fill="#2A2932"
               />
             </svg>
-          </button>
+          </button> */}
         </div>
         <div
           ref={videoRef}

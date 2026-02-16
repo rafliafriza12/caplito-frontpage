@@ -242,19 +242,34 @@ const Testimonials: React.FC = () => {
               return (
                 <div
                   key={i}
-                  className="w-72 sm:w-80 md:w-md h-auto  rounded-xl md:rounded-2xl p-4 md:p-6 flex justify-start items-center gap-4 bg-[#FAFAFA] border border-[#F7F7F7] mr-4 md:mr-6"
+                  className="w-72 sm:w-80 md:w-96 h-auto min-h-44 sm:min-h-48 md:min-h-70 rounded-xl md:rounded-2xl p-4 md:p-6 flex flex-col justify-between items-start bg-[#FAFAFA] border border-[#F7F7F7] mr-4 md:mr-6"
                 >
-                  <div className="w-9 md:w-11.5 h-9 md:h-11.5 rounded-full overflow-hidden relative">
-                    <Image
-                      src={item.person.imgUrl}
-                      alt={item.person.name}
-                      fill
-                      className="object-cover"
-                    />
+                  <div className="flex flex-col items-start gap-2 sm:gap-3 md:gap-4">
+                    <h1 className="text-xs md:text-sm text-[#888888] leading-[150%]">
+                      {item.date}
+                    </h1>
+                    <p className="text-[#454545] font-medium text-sm md:text-base leading-[150%] ">
+                      {item.comment}
+                    </p>
                   </div>
-                  <p className="text-[#454545] font-medium text-sm md:text-lg leading-[150%] line-clamp-1 w-[80%]">
-                    {item.comment}
-                  </p>
+                  <div className="flex items-center gap-2 sm:gap-3 mt-3 sm:mt-4">
+                    <div className="w-9 sm:w-10 md:w-11.5 h-9 sm:h-10 md:h-11.5 rounded-full overflow-hidden relative shrink-0">
+                      <Image
+                        src={item.person.imgUrl}
+                        alt={item.person.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="flex flex-col items-start gap-0.5">
+                      <h1 className="text-sm md:text-base font-medium text-[#0B072C] leading-[150%]">
+                        {item.person.name}
+                      </h1>
+                      <h1 className="text-xs sm:text-sm md:text-base text-[#4F4F4F] leading-[150%]">
+                        {item.person.role}
+                      </h1>
+                    </div>
+                  </div>
                 </div>
               );
             })}
