@@ -212,7 +212,7 @@ export function Hero() {
               height="24"
               rx="12"
               stroke="white"
-              stroke-width="2"
+              strokeWidth="2"
             />
             <mask
               id="mask0_23144_418"
@@ -243,7 +243,7 @@ export function Hero() {
                 fill="#EEEEEE"
               />
             </g>
-            <g clip-path="url(#clip0_23144_418)">
+            <g clipPath="url(#clip0_23144_418)">
               <path
                 d="M33 3.475C31.275 2.3875 29.2125 1.75 27 1.75C24.7875 1.75 22.725 2.3875 21 3.475V22.4875C22.725 23.575 24.7875 24.2125 27 24.2125C29.2125 24.2125 31.275 23.575 33 22.4875V3.475Z"
                 fill="white"
@@ -260,7 +260,7 @@ export function Hero() {
               height="24"
               rx="12"
               stroke="white"
-              stroke-width="2"
+              strokeWidth="2"
             />
             <defs>
               <clipPath id="clip0_23144_418">
