@@ -2,7 +2,7 @@
 
 import { Container } from "@/components/atoms/Container";
 import { ITestimonial, testimonialData } from "@/constant/home";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
@@ -10,10 +10,33 @@ import Marquee from "react-fast-marquee";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const MAX_CHAR = 35;
+
 const Testimonials: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const featuresRef = useRef<HTMLDivElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [showMetaIndex, setShowMetaIndex] = useState<number | null>(null);
+  // const [height, setHeight] = useState<boolean>(false);
+  // const [date, setDate] = useState<boolean>(false);
+  // const [text, setText] = useState<boolean>(false);
+  // const [person, setPerson] = useState<boolean>(false);
+
+  // const handleEnter = (i: number) => {
+  //   setHoveredIndex(i);
+
+  //   setHeight(hoveredIndex === i);
+  //   // tunggu height expand dulu baru munculkan meta
+  //   setTimeout(() => {
+  //     setpe(i);
+  //   }, 250); // setengah dari duration 500ms
+  // };
+
+  // const handleLeave = () => {
+  //   setHoveredIndex(null);
+  //   setShowMetaIndex(null);
+  // };
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -234,40 +257,66 @@ const Testimonials: React.FC = () => {
       </Container>
       <div
         ref={marqueeRef}
-        className="w-full max-width flex flex-col gap-3 sm:gap-4 md:gap-6 lg:gap-10 pb-4 sm:pb-5 md:pb-8"
+        className="w-full max-width flex flex-col gap-3 sm:gap-4 md:gap-6 lg:gap-10 pb-4 sm:pb-5 md:pb-8 "
       >
-        <div className="w-full ">
-          <Marquee direction="right" className="w-full">
+        <div className="w-full [&_.rfm-marquee-container]:overflow-visible [&_.rfm-marquee]:overflow-visible [&_.rfm-initial-child-container]:overflow-visible [&_.rfm-child]:overflow-visible">
+          <Marquee
+            direction="right"
+            className="w-full overflow-visible!"
+            pauseOnHover
+          >
             {testimonialData.map((item: ITestimonial, i: number) => {
+              const isHover = hoveredIndex === i;
+
               return (
                 <div
                   key={i}
-                  className="w-72 sm:w-80 md:w-96 h-auto min-h-44 sm:min-h-48 md:min-h-70 rounded-xl md:rounded-2xl p-4 md:p-6 flex flex-col justify-between items-start bg-[#FAFAFA] border border-[#F7F7F7] mr-4 md:mr-6"
+                  onMouseEnter={() => setHoveredIndex(i)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                  className="relative flex items-end gap-3 mr-8 cursor-pointer h-16 group duration-300"
                 >
-                  <div className="flex flex-col items-start gap-2 sm:gap-3 md:gap-4">
-                    <h1 className="text-xs md:text-sm text-[#888888] leading-[150%]">
-                      {item.date}
-                    </h1>
-                    <p className="text-[#454545] font-medium text-sm md:text-base leading-[150%] ">
-                      {item.comment}
-                    </p>
+                  {/* Avatar */}
+                  <div className="w-12 h-12 rounded-full overflow-hidden relative shrink-0  shadow-md z-10">
+                    <Image
+                      src={item.person.imgUrl}
+                      alt={item.person.name}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
-                  <div className="flex items-center gap-2 sm:gap-3 mt-3 sm:mt-4">
-                    <div className="w-9 sm:w-10 md:w-11.5 h-9 sm:h-10 md:h-11.5 rounded-full overflow-hidden relative shrink-0">
-                      <Image
-                        src={item.person.imgUrl}
-                        alt={item.person.name}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="flex flex-col items-start gap-0.5">
-                      <h1 className="text-sm md:text-base font-medium text-[#0B072C] leading-[150%]">
-                        {item.person.name}
-                      </h1>
-                      <h1 className="text-xs sm:text-sm md:text-base text-[#4F4F4F] leading-[150%]">
-                        {item.person.role}
-                      </h1>
+
+                  {/* Card */}
+                  <div
+                    className={`bg-[#FAFAFA] border border-[#EAEAEA]/60 rounded-3xl px-6 py-4 w-80 overflow-hidden transition-all duration-500  max-h-14 group-hover:max-h-60 `}
+                  >
+                    <div className="flex flex-col gap-2 overflow-hidden">
+                      {/* DATE */}
+                      <p
+                        className={`text-xs text-gray-500 transition-opacity duration-100 absolute opacity-0 group-hover:opacity-100`}
+                      >
+                        {item.date}
+                      </p>
+
+                      {/* COMMENT */}
+                      <p className="text-sm text-[#2C2C2C] leading-relaxed pt-0 duration-300 group-hover:pt-5 pb-10">
+                        {/* {isHover
+                          ? item.comment
+                          : item.comment.slice(0, MAX_CHAR) +
+                            (item.comment.length > MAX_CHAR ? "..." : "")} */}
+                        {item.comment}
+                      </p>
+
+                      {/* NAME + ROLE */}
+                      <p
+                        className={` text-sm text-[#2C2C2C]  duration-300  absolute z-0 bottom-0 h-5 group-hover:h-8 bg-[#fafafa] group-hover:bg-linear-to-t from-[#fafafa] to-[#fafafa]/70 w-full overflow-hidden`}
+                      >
+                        <span className="font-medium duration-300 opacity-0 group-hover:opacity-100">
+                          — {item.person.name}
+                        </span>
+                        <span className="text-gray-500 ml-2 duration-300 opacity-0 group-hover:opacity-100">
+                          {item.person.role}
+                        </span>
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -275,45 +324,6 @@ const Testimonials: React.FC = () => {
             })}
           </Marquee>
         </div>
-        {/* <div className="w-full">
-          <Marquee direction="left" className="w-full">
-            {testimonialData.map((item: ITestimonial, i: number) => {
-              return (
-                <div
-                  key={i}
-                  className="w-72 sm:w-80 md:w-md h-auto min-h-52 md:h-73 rounded-xl md:rounded-2xl p-4 md:p-6 flex flex-col justify-between items-start bg-[#FAFAFA] border border-[#F7F7F7] mr-4 md:mr-6"
-                >
-                  <div className="flex flex-col items-start gap-3 md:gap-6">
-                    <h1 className="text-xs md:text-sm text-[#888888] leading-[150%]">
-                      {item.date}
-                    </h1>
-                    <p className="text-[#454545] font-medium text-sm md:text-lg leading-[150%]">
-                      {item.comment}
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-2 mt-4 md:mt-0">
-                    <div className="w-9 md:w-11.5 h-9 md:h-11.5 rounded-full overflow-hidden relative">
-                      <Image
-                        src={item.person.imgUrl}
-                        alt={item.person.name}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="flex flex-col items-start gap-0.5 md:gap-1">
-                      <h1 className="text-sm md:text-base font-medium text-[#0B072C] leading-[150%]">
-                        {item.person.name}
-                      </h1>
-                      <h1 className="text-sm md:text-base text-[#4F4F4F] leading-[150%]">
-                        {item.person.role}
-                      </h1>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </Marquee>
-        </div> */}
       </div>
     </section>
   );

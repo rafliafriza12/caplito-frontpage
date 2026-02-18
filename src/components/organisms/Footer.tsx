@@ -29,22 +29,9 @@ const Footer: React.FC<IFooterProps> = ({ variant = "primary" }) => {
               infrastructure powering Caplito. We do not offer financial, legal,
               or tax advice. All wallet activity is directed by you, the user —
               Caplito is non-custodial by design, meaning we never hold or
-              control your funds. Merchants using the Caplito platform are fully
-              responsible for any tokens, rewards, or services they offer to
-              their users. This includes meeting all applicable requirements for
-              consumer protection, financial regulation, and data privacy in
-              their jurisdiction. The digital dollars (USDC) available through
-              Caplito are issued by [PARTNER], a licensed and regulated
-              financial institution. Caplito does not issue, manage, or hold
-              custody of USDC on your behalf. For details on Circle's regulatory
-              status, visit their website. Caplito does not issue or custody
-              USDC. This website and all related materials are provided for
-              informational purposes only. Nothing here should be considered an
-              offer to sell or a request to buy any financial product or
-              service. Participation in any digital asset program is voluntary
-              and governed by the terms set by each respective merchant.
+              control your funds.
             </p>
-            {/* <p className="leading-[140%] md:leading-[120%] text-sm md:text-base text-[#D1D1D1]">
+            <p className="leading-[140%] md:leading-[120%] text-sm md:text-base text-[#D1D1D1]">
               Merchants using the Caplito platform are fully responsible for any
               tokens, rewards, or services they offer to their users. This
               includes meeting all applicable requirements for consumer
@@ -64,7 +51,7 @@ const Footer: React.FC<IFooterProps> = ({ variant = "primary" }) => {
               offer to sell or a request to buy any financial product or
               service. Participation in any digital asset program is voluntary
               and governed by the terms set by each respective merchant.
-            </p> */}
+            </p>
           </div>
           <div className="w-full grid grid-cols-1 md:grid-cols-2 ipad-horizontal:grid-cols-4 gap-8 md:gap-10">
             <div className="w-full md:col-span-2 flex flex-col items-start gap-6 md:gap-12.5 max-w-107">
@@ -210,16 +197,24 @@ const Footer: React.FC<IFooterProps> = ({ variant = "primary" }) => {
               infrastructure powering Caplito. We do not offer financial, legal,
               or tax advice. All wallet activity is directed by you, the user —
               Caplito is non-custodial by design, meaning we never hold or
-              control your funds. Merchants using the Caplito platform are fully
-              responsible for any tokens, rewards, or services they offer to
-              their users. This includes meeting all applicable requirements for
-              consumer protection, financial regulation, and data privacy in
-              their jurisdiction. The digital dollars (USDC) available through
-              Caplito are issued by [PARTNER], a licensed and regulated
-              financial institution. Caplito does not issue, manage, or hold
-              custody of USDC on your behalf. For details on Circle's regulatory
-              status, visit their website. Caplito does not issue or custody
-              USDC. This website and all related materials are provided for
+              control your funds.
+            </p>
+            <p className="leading-[140%] md:leading-[120%] text-sm md:text-base text-[#D1D1D1]">
+              Merchants using the Caplito platform are fully responsible for any
+              tokens, rewards, or services they offer to their users. This
+              includes meeting all applicable requirements for consumer
+              protection, financial regulation, and data privacy in their
+              jurisdiction.
+            </p>
+            <p className="leading-[140%] md:leading-[120%] text-sm md:text-base text-[#D1D1D1]">
+              The digital dollars (USDC) available through Caplito are issued by
+              [PARTNER], a licensed and regulated financial institution. Caplito
+              does not issue, manage, or hold custody of USDC on your behalf.
+              For details on Circle's regulatory status, visit their website.
+              Caplito does not issue or custody USDC.
+            </p>
+            <p className="leading-[140%] md:leading-[120%] text-sm md:text-base text-[#D1D1D1]">
+              This website and all related materials are provided for
               informational purposes only. Nothing here should be considered an
               offer to sell or a request to buy any financial product or
               service. Participation in any digital asset program is voluntary
