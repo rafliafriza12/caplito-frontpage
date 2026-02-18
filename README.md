@@ -1,36 +1,110 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Caplito
 
-## Getting Started
+This project is built using [Next.js](https://nextjs.org).
 
-First, run the development server:
+---
+
+## Prerequisites
+
+Make sure you have the following installed:
+
+- **Node.js** (Recommended: LTS version)  
+  https://nodejs.org
+
+Check your Node.js version:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+node -v
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 1. Install pnpm (If Not Installed)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+If you don’t have `pnpm` installed yet, run:
+
+```bash
+npm install -g pnpm
+```
+
+Verify the installation:
+
+```bash
+pnpm -v
+```
+
+---
+
+## 2. Install Project Dependencies
+
+Navigate to the project directory, then run:
+
+```bash
+pnpm install
+```
+
+This command installs all dependencies listed in `package.json`.
+
+---
+
+## 3. Run the Development Server
+
+After installing dependencies, start the development server:
+
+```bash
+pnpm dev
+```
+
+Open your browser and visit:
+
+```
+http://localhost:3000
+```
+
+The page will automatically reload as you edit the files.
+
+---
+
+## Start Editing
+
+You can begin editing the main page here:
+
+```
+app/page.tsx
+```
+
+---
+
+## Build for Production
+
+To create a production build:
+
+```bash
+pnpm build
+```
+
+To run the production build:
+
+```bash
+pnpm start
+```
+
+---
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+To learn more about Next.js, check out:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Learn Next.js](https://nextjs.org/learn)
+- [Next.js GitHub Repository](https://github.com/vercel/next.js)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The easiest way to deploy your Next.js application is using:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Vercel](https://vercel.com)
+
+You can also deploy to other hosting providers depending on your needs.
