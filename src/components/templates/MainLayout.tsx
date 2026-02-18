@@ -13,7 +13,9 @@ export function MainLayout({ children }: MainLayoutProps) {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className={`flex-1 ${pathname === "/" ? "overflow-hidden" : ""}`}>
+      <main
+        className={`flex-1 select-none lg:select-text ${pathname === "/" ? "overflow-hidden" : ""}`}
+      >
         {children}
       </main>
       <Footer variant={pathname === "/" ? "primary" : "secondary"} />

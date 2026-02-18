@@ -266,14 +266,12 @@ const Testimonials: React.FC = () => {
             pauseOnHover
           >
             {testimonialData.map((item: ITestimonial, i: number) => {
-              const isHover = hoveredIndex === i;
-
               return (
                 <div
                   key={i}
                   onMouseEnter={() => setHoveredIndex(i)}
                   onMouseLeave={() => setHoveredIndex(null)}
-                  className="relative flex items-end gap-3 mr-8 cursor-pointer h-16 group duration-300"
+                  className="relative flex items-end gap-3 mr-8 cursor-pointer h-16 group duration-300 select-none touch-manipulation"
                 >
                   {/* Avatar */}
                   <div className="w-12 h-12 rounded-full overflow-hidden relative shrink-0  shadow-md z-10">
@@ -287,7 +285,7 @@ const Testimonials: React.FC = () => {
 
                   {/* Card */}
                   <div
-                    className={`bg-[#FAFAFA] border border-[#EAEAEA]/60 rounded-3xl px-6 py-4 w-80 overflow-hidden transition-all duration-500  max-h-14 group-hover:max-h-60 `}
+                    className={`bg-[#FAFAFA] border border-[#EAEAEA]/60 rounded-3xl px-6 py-4 w-80 overflow-hidden transition-all duration-500  max-h-14 group-hover:max-h-60 relative z-0`}
                   >
                     <div className="flex flex-col gap-2 overflow-hidden">
                       {/* DATE */}
@@ -298,12 +296,12 @@ const Testimonials: React.FC = () => {
                       </p>
 
                       {/* COMMENT */}
-                      <p className="text-sm text-[#2C2C2C] leading-relaxed pt-0 duration-300 group-hover:pt-5 pb-10">
+                      <p className="text-sm text-[#2C2C2C] leading-relaxed pt-0 duration-300 group-hover:pt-5 pb-10 ">
                         {/* {isHover
                           ? item.comment
                           : item.comment.slice(0, MAX_CHAR) +
                             (item.comment.length > MAX_CHAR ? "..." : "")} */}
-                        {item.comment}
+                        {item.comment}{" "}
                       </p>
 
                       {/* NAME + ROLE */}
