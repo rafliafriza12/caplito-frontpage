@@ -16,22 +16,39 @@ const Testimonials: React.FC = () => {
   const marqueeRef = useRef<HTMLDivElement>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-  const handleEnter = (i: number) => {
-    setHoveredIndex(i);
-  };
-
-  const handleLeave = () => {
-    setHoveredIndex(null);
-  };
-
-  const handleTouchStart = (e: React.TouchEvent, i: number) => {
-    e.preventDefault();
-    if (hoveredIndex === i) {
-      handleLeave();
-    } else {
-      handleEnter(i);
+  const handlePointerEnter = (e: React.PointerEvent, i: number) => {
+    if (e.pointerType === "mouse") {
+      setHoveredIndex(i);
     }
   };
+
+  const handlePointerLeave = (e: React.PointerEvent) => {
+    if (e.pointerType === "mouse") {
+      setHoveredIndex(null);
+    }
+  };
+
+  const handleClick = (i: number) => {
+    setHoveredIndex((prev) => (prev === i ? null : i));
+  };
+
+  // Close card when clicking outside on mobile
+  useEffect(() => {
+    if (hoveredIndex === null) return;
+
+    const handleOutsideClick = (e: PointerEvent) => {
+      if (e.pointerType !== "touch" && e.pointerType !== "pen") return;
+
+      const target = e.target as HTMLElement;
+      if (!target.closest("[data-testimonial-card]")) {
+        setHoveredIndex(null);
+      }
+    };
+
+    document.addEventListener("pointerdown", handleOutsideClick);
+    return () =>
+      document.removeEventListener("pointerdown", handleOutsideClick);
+  }, [hoveredIndex]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -258,54 +275,91 @@ const Testimonials: React.FC = () => {
           <Marquee
             direction="right"
             className="w-full overflow-visible!"
-            pauseOnHover
+            play={hoveredIndex === null}
           >
             {testimonialData.map((item: ITestimonial, i: number) => {
               const isActive = hoveredIndex === i;
               return (
                 <div
                   key={i}
-                  onMouseEnter={() => handleEnter(i)}
-                  onMouseLeave={handleLeave}
-                  onTouchStart={(e) => handleTouchStart(e, i)}
-                  className={`relative flex items-end gap-2 sm:gap-3 mr-5 sm:mr-8 cursor-pointer h-12 sm:h-16 duration-300 select-none touch-manipulation ${isActive ? "group" : ""}`}
+                  data-testimonial-card
+                  onPointerEnter={(e) => handlePointerEnter(e, i)}
+                  onPointerLeave={(e) => handlePointerLeave(e)}
+                  onClick={() => handleClick(i)}
+                  className={`relative flex items-end gap-2 sm:gap-3 mr-5 sm:mr-8 cursor-pointer h-12 sm:h-16 duration-300 touch-manipulation`}
                   style={{ zIndex: isActive ? 50 : 1 }}
                 >
                   {/* Avatar */}
-                  <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-full overflow-hidden relative shrink-0 shadow-md z-10">
+                  <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-full overflow-hidden relative shrink-0 shadow-md z-10 pointer-events-none">
                     <Image
                       src={item.person.imgUrl}
                       alt={item.person.name}
                       fill
-                      className="object-cover"
+                      className="object-cover pointer-events-none"
                     />
                   </div>
 
                   {/* Card */}
                   <div
-                    className={`bg-[#FAFAFA] border border-[#EAEAEA]/60 rounded-2xl sm:rounded-3xl px-4 sm:px-6 py-3 sm:py-4 w-56 sm:w-80 overflow-hidden transition-all duration-500 max-h-11 sm:max-h-14 group-hover:max-h-60 relative z-0`}
+                    className="bg-[#FAFAFA] border border-[#EAEAEA]/60 rounded-2xl sm:rounded-3xl px-4 sm:px-6 py-3 sm:py-4 w-56 sm:w-80 overflow-hidden relative z-0 max-h-11 sm:max-h-14"
+                    style={{
+                      maxHeight: isActive ? "240px" : undefined,
+                      transition: "max-height 0.5s ease, box-shadow 0.3s ease",
+                      boxShadow: isActive
+                        ? "0 10px 25px rgba(0,0,0,0.1)"
+                        : "none",
+                    }}
                   >
                     <div className="flex flex-col gap-2 overflow-hidden">
                       {/* DATE */}
                       <p
-                        className={`text-[10px] sm:text-xs text-gray-500 transition-opacity duration-100 absolute opacity-0 group-hover:opacity-100`}
+                        className="text-[10px] sm:text-xs text-gray-500 absolute"
+                        style={{
+                          opacity: isActive ? 1 : 0,
+                          transition: "opacity 0.2s ease",
+                        }}
                       >
                         {item.date}
                       </p>
 
                       {/* COMMENT */}
-                      <p className="text-xs sm:text-sm text-[#2C2C2C] leading-relaxed pt-0 duration-300 group-hover:pt-5 pb-8 sm:pb-10">
+                      <p
+                        className="text-xs sm:text-sm text-[#2C2C2C] leading-relaxed pb-8 sm:pb-10"
+                        style={{
+                          paddingTop: isActive ? "20px" : "0px",
+                          transition: "padding-top 0.3s ease",
+                        }}
+                      >
                         {item.comment}
                       </p>
 
                       {/* NAME + ROLE */}
                       <p
-                        className={`text-[10px] sm:text-sm text-[#2C2C2C] duration-300 absolute z-0 bottom-0 h-2 md:h-5 group-hover:h-8 bg-[#fafafa] group-hover:bg-linear-to-t from-[#fafafa] to-[#fafafa]/70 w-full overflow-hidden`}
+                        className="text-[10px] sm:text-sm text-[#2C2C2C] absolute z-0 bottom-0 w-full overflow-hidden h-2 md:h-5"
+                        style={{
+                          height: isActive ? "32px" : "",
+                          background: isActive
+                            ? "linear-gradient(to top, #fafafa, rgba(250,250,250,0.7))"
+                            : "#fafafa",
+                          transition: "height 0.3s ease, background 0.3s ease",
+                        }}
                       >
-                        <span className="font-medium duration-300 opacity-0 group-hover:opacity-100">
+                        <span
+                          className="font-medium"
+                          style={{
+                            opacity: isActive ? 1 : 0,
+                            transition: "opacity 0.3s ease",
+                          }}
+                        >
                           — {item.person.name}
                         </span>
-                        <span className="text-gray-500 ml-2 duration-300 opacity-0 group-hover:opacity-100">
+                        <span
+                          className="text-gray-500 ml-2"
+                          style={{
+                            opacity: isActive ? 1 : 0,
+                            transition: "opacity 0.3s ease 0.05s",
+                          }}
+                        >
                           {item.person.role}
                         </span>
                       </p>
