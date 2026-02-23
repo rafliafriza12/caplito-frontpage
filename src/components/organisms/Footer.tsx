@@ -9,10 +9,11 @@ const Footer: React.FC<IFooterProps> = ({ variant = "primary" }) => {
   if (variant === "primary") {
     return (
       <footer className="w-full bg-[#232040] font-satoshi">
-        <Container className="w-full flex flex-col gap-10 md:gap-15 px-4 md:px-6">
-          <div className="w-full flex flex-col items-start gap-4 md:gap-6">
-            <Link href={"/"} className="flex items-center gap-3 md:gap-5">
-              <div className="w-10 h-10 md:w-12 md:h-12 relative">
+        <Container className="w-full flex flex-col gap-8 md:gap-12 px-4 md:px-6 py-10 md:py-14">
+          {/* Logo - center top */}
+          <div className="w-full flex justify-center">
+            <Link href={"/"} className="flex items-center gap-3">
+              <div className="w-10 h-10 md:w-18 md:h-18 relative">
                 <Image
                   src={"/img/logo/caplito.png"}
                   alt="Caplito"
@@ -20,60 +21,161 @@ const Footer: React.FC<IFooterProps> = ({ variant = "primary" }) => {
                   className="object-cover"
                 />
               </div>
-              <h1 className="text-primary font-bold text-lg md:text-[23px]">
+              <h1 className="text-primary font-bold text-lg md:text-[40px]">
                 Caplito
               </h1>
             </Link>
-            <p className="leading-[140%] md:leading-[120%] text-sm md:text-base text-[#D1D1D1]">
-              HIG Inc. is a technology company that provides the software
-              infrastructure powering Caplito. We do not offer financial, legal,
-              or tax advice. All wallet activity is directed by you, the user —
-              Caplito is non-custodial by design, meaning we never hold or
-              control your funds.
-            </p>
-            <p className="leading-[140%] md:leading-[120%] text-sm md:text-base text-[#D1D1D1]">
-              Merchants using the Caplito platform are fully responsible for any
-              tokens, rewards, or services they offer to their users. This
-              includes meeting all applicable requirements for consumer
-              protection, financial regulation, and data privacy in their
-              jurisdiction.
-            </p>
-            <p className="leading-[140%] md:leading-[120%] text-sm md:text-base text-[#D1D1D1]">
-              The digital dollars (USDC) available through Caplito are issued by
-              [PARTNER], a licensed and regulated financial institution. Caplito
-              does not issue, manage, or hold custody of USDC on your behalf.
-              For details on Circle's regulatory status, visit their website.
-              Caplito does not issue or custody USDC.
-            </p>
-            <p className="leading-[140%] md:leading-[120%] text-sm md:text-base text-[#D1D1D1]">
-              This website and all related materials are provided for
-              informational purposes only. Nothing here should be considered an
-              offer to sell or a request to buy any financial product or
-              service. Participation in any digital asset program is voluntary
-              and governed by the terms set by each respective merchant.
-            </p>
           </div>
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 ipad-horizontal:grid-cols-4 gap-8 md:gap-10">
-            <div className="w-full md:col-span-2 flex flex-col items-start gap-6 md:gap-12.5 max-w-107">
+
+          {/* Top Section - 4 paragraphs in 2 columns */}
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-x-25 md:gap-y-12.5">
+            {/* Left Column */}
+            <div className="flex flex-col gap-2 md:gap-3">
+              <h2 className="text-primary font-semibold text-base md:text-lg leading-[120%]">
+                Company
+              </h2>
+              <p className="leading-[150%] text-sm md:text-base text-[#D1D1D1]">
+                HIG Inc. is a technology company that provides the software
+                infrastructure powering Caplito. We do not offer financial,
+                legal, or tax advice. All wallet activity is directed by you,
+                the user — Caplito is non-custodial by design, meaning we never
+                hold or control your funds.
+              </p>
+            </div>
+            <div className="flex flex-col gap-2 md:gap-3">
+              <h2 className="text-primary font-semibold text-base md:text-lg leading-[120%]">
+                For Merchants
+              </h2>
+              <p className="leading-[150%] text-sm md:text-base text-[#D1D1D1]">
+                Merchants using the Caplito platform are fully responsible for
+                any tokens, rewards, or services they offer to their users. This
+                includes meeting all applicable requirements for consumer
+                protection, financial regulation, and data privacy in their
+                jurisdiction.
+              </p>
+            </div>
+            <div className="flex flex-col gap-2 md:gap-3">
+              <h2 className="text-primary font-semibold text-base md:text-lg leading-[120%]">
+                About the Digital Dollars
+              </h2>
+              <p className="leading-[150%] text-sm md:text-base text-[#D1D1D1]">
+                The digital dollars (USDC) available through Caplito are issued
+                by [PARTNER], a licensed and regulated financial institution.
+                Caplito does not issue, manage, or hold custody of USDC on your
+                behalf. For details on Circle's regulatory status, visit their
+                website. Caplito does not issue or custody USDC.
+              </p>
+            </div>
+            <div className="flex flex-col gap-2 md:gap-3">
+              <h2 className="text-primary font-semibold text-base md:text-lg leading-[120%]">
+                Just So You Know
+              </h2>
+              <p className="leading-[150%] text-sm md:text-base text-[#D1D1D1]">
+                This website and all related materials are provided for
+                informational purposes only. Nothing here should be considered
+                an offer to sell or a request to buy any financial product or
+                service. Participation in any digital asset program is voluntary
+                and governed by the terms set by each respective merchant.
+              </p>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="w-full h-px bg-[#3F3D56]" />
+
+          {/* Bottom Section - Site Map | Contact Us | Newsletter */}
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 ipad-horizontal:grid-cols-3 gap-8 md:gap-10">
+            {/* Site Map */}
+            <div className="flex flex-col items-start gap-5 md:gap-6">
+              <h1 className="text-primary font-medium text-lg md:text-xl leading-[140%]">
+                Trust and Legal
+              </h1>
               <div className="flex flex-col items-start gap-3 md:gap-4">
-                <h1 className="text-primary font-medium leading-[120%] text-2xl md:text-[32px]">
-                  Newsletter Sign Up
-                </h1>
-                <p className="text-[#D1D1D1] leading-[140%] md:leading-[120%] text-base md:text-lg">
-                  Sign up for subscribing newsletter and join the growing
-                  Caplito community for updates.
-                </p>
+                <Link
+                  href={"/terms-of-service"}
+                  className="text-[#D9D9D9] text-sm md:text-base hover:text-primary transition-colors"
+                >
+                  Terms and Condition
+                </Link>
+                <Link
+                  href={"/privacy-policy"}
+                  className="text-[#D9D9D9] text-sm md:text-base hover:text-primary transition-colors"
+                >
+                  Privacy & Policy
+                </Link>
+                <Link
+                  href={"/data-policy"}
+                  className="text-[#D9D9D9] text-sm md:text-base hover:text-primary transition-colors"
+                >
+                  Data Policy
+                </Link>
+                <Link
+                  href={"#"}
+                  className="text-[#D9D9D9] text-sm md:text-base hover:text-primary transition-colors"
+                >
+                  Cookies Preferences
+                </Link>
+                <Link
+                  href={"mailto:support@caplito.com"}
+                  className="text-[#D9D9D9] text-sm md:text-base hover:text-primary transition-colors"
+                >
+                  Contact
+                </Link>
               </div>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-0 sm:justify-between h-auto sm:h-14.25 w-full">
+            </div>
+
+            {/* Contact Us */}
+            <div className="flex flex-col items-start gap-5 md:gap-6">
+              <h1 className="text-primary font-medium text-lg md:text-xl leading-[140%]">
+                Contact Us
+              </h1>
+              <div className="flex flex-col items-start gap-3 md:gap-4">
+                <Link
+                  href={"mailto:support@caplito.com"}
+                  className="text-[#D9D9D9] text-sm md:text-base hover:text-primary transition-colors"
+                >
+                  support@caplito.com
+                </Link>
+                <Link
+                  href={"tel:+13028028695"}
+                  className="text-[#D9D9D9] text-sm md:text-base hover:text-primary transition-colors"
+                >
+                  302-802-8695
+                </Link>
+                {/* <Link
+                  href={"#"}
+                  className="text-[#D9D9D9] text-sm md:text-base hover:text-primary transition-colors"
+                >
+                  155 N. Wacker Suite 3650
+                </Link>
+                <Link
+                  href={"#"}
+                  className="text-[#D9D9D9] text-sm md:text-base hover:text-primary transition-colors"
+                >
+                  Chicago, IL 60606
+                </Link> */}
+              </div>
+            </div>
+
+            {/* Newsletter Sign Up */}
+            <div className="flex flex-col items-start gap-4 md:gap-5 sm:col-span-2 ipad-horizontal:col-span-1">
+              <h1 className="text-primary font-medium leading-[120%] text-2xl md:text-[28px]">
+                Newsletter Sign Up
+              </h1>
+              <p className="text-[#D1D1D1] leading-[150%] text-sm md:text-base">
+                Sign up for subscribing newsletter and join the growing Caplito
+                community for updates.
+              </p>
+              <div className="flex flex-row gap-3 items-center w-full mt-1">
                 <input
                   type="email"
                   placeholder="your email address"
-                  className="w-full sm:w-90 bg-[#F7F7F7] rounded-xl h-14 sm:h-full py-3 md:py-4 px-6 md:px-8 outline-0 placeholder:text-[#D1D1D1] placeholder:text-base md:placeholder:text-lg text-base md:text-lg"
+                  className="flex-1 bg-white border border-[#E5E5E5] rounded-xl h-12 py-3 px-5 outline-0 placeholder:text-[#AAAAAA] placeholder:text-sm text-sm text-[#232040]"
                 />
-                <button className="w-full sm:w-14.25 h-14 sm:h-full rounded-xl bg-[#6C5CE7] flex items-center justify-center">
+                <button className="w-12 h-12 rounded-xl bg-[#6C5CE7] flex items-center justify-center shrink-0">
                   <svg
-                    width="19"
-                    height="21"
+                    width="16"
+                    height="18"
                     viewBox="0 0 19 21"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -86,90 +188,19 @@ const Footer: React.FC<IFooterProps> = ({ variant = "primary" }) => {
                 </button>
               </div>
             </div>
-            <div className="flex flex-col items-start gap-5 md:gap-8">
-              <h1 className="text-primary font-medium text-lg md:text-xl leading-[140%]">
-                Site Map
-              </h1>
-
-              <div className="flex flex-col items-start gap-3 md:gap-5">
-                <Link
-                  href={"/privacy-policy"}
-                  className="text-[#D9D9D9] text-sm md:text-base"
-                >
-                  Privacy & Policy
-                </Link>
-                <Link
-                  href={"/terms-of-service"}
-                  className="text-[#D9D9D9] text-sm md:text-base"
-                >
-                  Terms and Condition
-                </Link>
-                <Link
-                  href={"/data-policy"}
-                  className="text-[#D9D9D9] text-sm md:text-base"
-                >
-                  Data Policy
-                </Link>
-                <Link
-                  href={"#"}
-                  className="text-[#D9D9D9] text-sm md:text-base"
-                >
-                  Cookies Preferences
-                </Link>
-                <Link
-                  href={"#"}
-                  className="text-[#D9D9D9] text-sm md:text-base"
-                >
-                  Contact
-                </Link>
-              </div>
-            </div>
-            <div className="flex flex-col items-start ipad-horizontal:items-end">
-              <div className="flex flex-col items-start gap-5 md:gap-8">
-                <h1 className="text-primary font-medium text-lg md:text-xl leading-[140%]">
-                  Contact Us
-                </h1>
-
-                <div className="flex flex-col items-start gap-3 md:gap-5">
-                  <Link
-                    href={"#"}
-                    className="text-[#D9D9D9] text-sm md:text-base"
-                  >
-                    help@caplito.com
-                  </Link>
-                  <Link
-                    href={"#"}
-                    className="text-[#D9D9D9] text-sm md:text-base"
-                  >
-                    312-214-1234
-                  </Link>
-                  <Link
-                    href={"#"}
-                    className="text-[#D9D9D9] text-sm md:text-base"
-                  >
-                    155 N. Wacker Suite 3650
-                  </Link>
-                  <Link
-                    href={"#"}
-                    className="text-[#D9D9D9] text-sm md:text-base"
-                  >
-                    Chicago, IL 60606
-                  </Link>
-                </div>
-              </div>
-            </div>
           </div>
-          <div className="w-full flex flex-col md:grid md:grid-cols-2 gap-4 md:gap-0">
-            <div className="flex justify-center md:justify-start order-2 md:order-1">
-              <h1 className="text-xs md:text-sm text-primary text-center md:text-left">
-                © 2022–2026 HIG Inc. All rights reserved.
-              </h1>
-            </div>
-            <div className="flex justify-center md:justify-end order-1 md:order-2">
-              <h1 className="text-xs md:text-base text-[#D9D9D9] text-center md:text-right">
-                Denver, CO • Dover, DE • Chicago, IL • Vancouver, BC
-              </h1>
-            </div>
+
+          {/* Divider */}
+          <div className="w-full h-px bg-[#3F3D56]" />
+
+          {/* Copyright bar */}
+          <div className="w-full flex flex-col md:flex-row md:justify-between gap-3 md:gap-0">
+            <h1 className="text-xs md:text-sm text-primary text-center md:text-left">
+              © 2022–2026 HIG Inc. All rights reserved.
+            </h1>
+            <h1 className="text-xs md:text-sm text-[#D9D9D9] text-center md:text-right">
+              Denver, CO • Dover, DE • Chicago, IL • Vancouver, BC
+            </h1>
           </div>
         </Container>
       </footer>
@@ -177,10 +208,11 @@ const Footer: React.FC<IFooterProps> = ({ variant = "primary" }) => {
   } else {
     return (
       <footer className="w-full bg-primary p-5 ipad-vertical:p-7.5 lg:p-15 font-satoshi">
-        <Container className="w-full flex flex-col gap-10 md:gap-15 px-4 md:px-6 bg-[#3F3D4F] rounded-4xl">
-          <div className="w-full flex flex-col items-start gap-4 md:gap-6">
-            <Link href={"/"} className="flex items-center gap-3 md:gap-5">
-              <div className="w-10 h-10 md:w-12 md:h-12 relative">
+        <Container className="w-full flex flex-col gap-8 md:gap-12 px-4 md:px-6 py-10 md:py-14 bg-[#3F3D4F] rounded-4xl">
+          {/* Logo - center top */}
+          <div className="w-full flex justify-center">
+            <Link href={"/"} className="flex items-center gap-3">
+              <div className="w-10 h-10 md:w-18 md:h-18 relative">
                 <Image
                   src={"/img/logo/caplito.png"}
                   alt="Caplito"
@@ -188,60 +220,161 @@ const Footer: React.FC<IFooterProps> = ({ variant = "primary" }) => {
                   className="object-cover"
                 />
               </div>
-              <h1 className="text-primary font-bold text-lg md:text-[23px]">
+              <h1 className="text-primary font-bold text-lg md:text-[40px]">
                 Caplito
               </h1>
             </Link>
-            <p className="leading-[140%] md:leading-[120%] text-sm md:text-base text-[#D1D1D1]">
-              HIG Inc. is a technology company that provides the software
-              infrastructure powering Caplito. We do not offer financial, legal,
-              or tax advice. All wallet activity is directed by you, the user —
-              Caplito is non-custodial by design, meaning we never hold or
-              control your funds.
-            </p>
-            <p className="leading-[140%] md:leading-[120%] text-sm md:text-base text-[#D1D1D1]">
-              Merchants using the Caplito platform are fully responsible for any
-              tokens, rewards, or services they offer to their users. This
-              includes meeting all applicable requirements for consumer
-              protection, financial regulation, and data privacy in their
-              jurisdiction.
-            </p>
-            <p className="leading-[140%] md:leading-[120%] text-sm md:text-base text-[#D1D1D1]">
-              The digital dollars (USDC) available through Caplito are issued by
-              [PARTNER], a licensed and regulated financial institution. Caplito
-              does not issue, manage, or hold custody of USDC on your behalf.
-              For details on Circle's regulatory status, visit their website.
-              Caplito does not issue or custody USDC.
-            </p>
-            <p className="leading-[140%] md:leading-[120%] text-sm md:text-base text-[#D1D1D1]">
-              This website and all related materials are provided for
-              informational purposes only. Nothing here should be considered an
-              offer to sell or a request to buy any financial product or
-              service. Participation in any digital asset program is voluntary
-              and governed by the terms set by each respective merchant.
-            </p>
           </div>
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 ipad-horizontal:grid-cols-4 gap-8 md:gap-10">
-            <div className="w-full md:col-span-2 flex flex-col items-start gap-6 md:gap-12.5 max-w-107">
+
+          {/* Top Section - 4 paragraphs in 2 columns */}
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-x-25 md:gap-y-12.5">
+            {/* Left Column */}
+            <div className="flex flex-col gap-2 md:gap-3">
+              <h2 className="text-primary font-semibold text-base md:text-lg leading-[120%]">
+                Company
+              </h2>
+              <p className="leading-[150%] text-sm md:text-base text-[#D1D1D1]">
+                HIG Inc. is a technology company that provides the software
+                infrastructure powering Caplito. We do not offer financial,
+                legal, or tax advice. All wallet activity is directed by you,
+                the user — Caplito is non-custodial by design, meaning we never
+                hold or control your funds.
+              </p>
+            </div>
+            <div className="flex flex-col gap-2 md:gap-3">
+              <h2 className="text-primary font-semibold text-base md:text-lg leading-[120%]">
+                For Merchants
+              </h2>
+              <p className="leading-[150%] text-sm md:text-base text-[#D1D1D1]">
+                Merchants using the Caplito platform are fully responsible for
+                any tokens, rewards, or services they offer to their users. This
+                includes meeting all applicable requirements for consumer
+                protection, financial regulation, and data privacy in their
+                jurisdiction.
+              </p>
+            </div>
+            <div className="flex flex-col gap-2 md:gap-3">
+              <h2 className="text-primary font-semibold text-base md:text-lg leading-[120%]">
+                About the Digital Dollars
+              </h2>
+              <p className="leading-[150%] text-sm md:text-base text-[#D1D1D1]">
+                The digital dollars (USDC) available through Caplito are issued
+                by [PARTNER], a licensed and regulated financial institution.
+                Caplito does not issue, manage, or hold custody of USDC on your
+                behalf. For details on Circle's regulatory status, visit their
+                website. Caplito does not issue or custody USDC.
+              </p>
+            </div>
+            <div className="flex flex-col gap-2 md:gap-3">
+              <h2 className="text-primary font-semibold text-base md:text-lg leading-[120%]">
+                Just So You Know
+              </h2>
+              <p className="leading-[150%] text-sm md:text-base text-[#D1D1D1]">
+                This website and all related materials are provided for
+                informational purposes only. Nothing here should be considered
+                an offer to sell or a request to buy any financial product or
+                service. Participation in any digital asset program is voluntary
+                and governed by the terms set by each respective merchant.
+              </p>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="w-full h-px bg-[#555370]" />
+
+          {/* Bottom Section - Site Map | Contact Us | Newsletter */}
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 ipad-horizontal:grid-cols-3 gap-8 md:gap-10">
+            {/* Site Map */}
+            <div className="flex flex-col items-start gap-5 md:gap-6">
+              <h1 className="text-primary font-medium text-lg md:text-xl leading-[140%]">
+                Trust and Legal
+              </h1>
               <div className="flex flex-col items-start gap-3 md:gap-4">
-                <h1 className="text-primary font-medium leading-[120%] text-2xl md:text-[32px]">
-                  Newsletter Sign Up
-                </h1>
-                <p className="text-[#D1D1D1] leading-[140%] md:leading-[120%] text-base md:text-lg">
-                  Sign up for subscribing newsletter and join the growing
-                  Caplito community for updates.
-                </p>
+                <Link
+                  href={"/terms-of-service"}
+                  className="text-[#D9D9D9] text-sm md:text-base hover:text-primary transition-colors"
+                >
+                  Terms and Condition
+                </Link>
+                <Link
+                  href={"/privacy-policy"}
+                  className="text-[#D9D9D9] text-sm md:text-base hover:text-primary transition-colors"
+                >
+                  Privacy & Policy
+                </Link>
+                <Link
+                  href={"/data-policy"}
+                  className="text-[#D9D9D9] text-sm md:text-base hover:text-primary transition-colors"
+                >
+                  Data Policy
+                </Link>
+                <Link
+                  href={"#"}
+                  className="text-[#D9D9D9] text-sm md:text-base hover:text-primary transition-colors"
+                >
+                  Cookies Preferences
+                </Link>
+                <Link
+                  href={"mailto:support@caplito.com"}
+                  className="text-[#D9D9D9] text-sm md:text-base hover:text-primary transition-colors"
+                >
+                  Contact
+                </Link>
               </div>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-0 sm:justify-between h-auto sm:h-14.25 w-full">
+            </div>
+
+            {/* Contact Us */}
+            <div className="flex flex-col items-start gap-5 md:gap-6">
+              <h1 className="text-primary font-medium text-lg md:text-xl leading-[140%]">
+                Contact Us
+              </h1>
+              <div className="flex flex-col items-start gap-3 md:gap-4">
+                <Link
+                  href={"mailto:support@caplito.com"}
+                  className="text-[#D9D9D9] text-sm md:text-base hover:text-primary transition-colors"
+                >
+                  support@caplito.com
+                </Link>
+                <Link
+                  href={"tel:+13028028695"}
+                  className="text-[#D9D9D9] text-sm md:text-base hover:text-primary transition-colors"
+                >
+                  302-802-8695
+                </Link>
+                {/* <Link
+                  href={"#"}
+                  className="text-[#D9D9D9] text-sm md:text-base hover:text-primary transition-colors"
+                >
+                  155 N. Wacker Suite 3650
+                </Link>
+                <Link
+                  href={"#"}
+                  className="text-[#D9D9D9] text-sm md:text-base hover:text-primary transition-colors"
+                >
+                  Chicago, IL 60606
+                </Link> */}
+              </div>
+            </div>
+
+            {/* Newsletter Sign Up */}
+            <div className="flex flex-col items-start gap-4 md:gap-5 sm:col-span-2 ipad-horizontal:col-span-1">
+              <h1 className="text-primary font-medium leading-[120%] text-2xl md:text-[28px]">
+                Newsletter Sign Up
+              </h1>
+              <p className="text-[#D1D1D1] leading-[150%] text-sm md:text-base">
+                Sign up for subscribing newsletter and join the growing Caplito
+                community for updates.
+              </p>
+              <div className="flex flex-row gap-3 items-center w-full mt-1">
                 <input
                   type="email"
                   placeholder="your email address"
-                  className="w-full sm:w-90 bg-[#F7F7F7] rounded-xl h-14 sm:h-full py-3 md:py-4 px-6 md:px-8 outline-0 placeholder:text-[#D1D1D1] placeholder:text-base md:placeholder:text-lg text-base md:text-lg"
+                  className="flex-1 bg-white border border-[#E5E5E5] rounded-xl h-12 py-3 px-5 outline-0 placeholder:text-[#AAAAAA] placeholder:text-sm text-sm text-[#232040]"
                 />
-                <button className="w-full sm:w-14.25 h-14 sm:h-full rounded-xl bg-[#6C5CE7] flex items-center justify-center">
+                <button className="w-12 h-12 rounded-xl bg-[#6C5CE7] flex items-center justify-center shrink-0">
                   <svg
-                    width="19"
-                    height="21"
+                    width="16"
+                    height="18"
                     viewBox="0 0 19 21"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -254,90 +387,19 @@ const Footer: React.FC<IFooterProps> = ({ variant = "primary" }) => {
                 </button>
               </div>
             </div>
-            <div className="flex flex-col items-start gap-5 md:gap-8">
-              <h1 className="text-primary font-medium text-lg md:text-xl leading-[140%]">
-                Site Map
-              </h1>
-
-              <div className="flex flex-col items-start gap-3 md:gap-5">
-                <Link
-                  href={"/privacy-policy"}
-                  className="text-[#D9D9D9] text-sm md:text-base"
-                >
-                  Privacy & Policy
-                </Link>
-                <Link
-                  href={"/terms-of-service"}
-                  className="text-[#D9D9D9] text-sm md:text-base"
-                >
-                  Terms and Condition
-                </Link>
-                <Link
-                  href={"/data-policy"}
-                  className="text-[#D9D9D9] text-sm md:text-base"
-                >
-                  Data Policy
-                </Link>
-                <Link
-                  href={"#"}
-                  className="text-[#D9D9D9] text-sm md:text-base"
-                >
-                  Cookies Preferences
-                </Link>
-                <Link
-                  href={"#"}
-                  className="text-[#D9D9D9] text-sm md:text-base"
-                >
-                  Contact
-                </Link>
-              </div>
-            </div>
-            <div className="flex flex-col items-start ipad-horizontal:items-end">
-              <div className="flex flex-col items-start gap-5 md:gap-8">
-                <h1 className="text-primary font-medium text-lg md:text-xl leading-[140%]">
-                  Contact Us
-                </h1>
-
-                <div className="flex flex-col items-start gap-3 md:gap-5">
-                  <Link
-                    href={"#"}
-                    className="text-[#D9D9D9] text-sm md:text-base"
-                  >
-                    help@caplito.com
-                  </Link>
-                  <Link
-                    href={"#"}
-                    className="text-[#D9D9D9] text-sm md:text-base"
-                  >
-                    312-214-1234
-                  </Link>
-                  <Link
-                    href={"#"}
-                    className="text-[#D9D9D9] text-sm md:text-base"
-                  >
-                    155 N. Wacker Suite 3650
-                  </Link>
-                  <Link
-                    href={"#"}
-                    className="text-[#D9D9D9] text-sm md:text-base"
-                  >
-                    Chicago, IL 60606
-                  </Link>
-                </div>
-              </div>
-            </div>
           </div>
-          <div className="w-full flex flex-col md:grid md:grid-cols-2 gap-4 md:gap-0">
-            <div className="flex justify-center md:justify-start order-2 md:order-1">
-              <h1 className="text-xs md:text-sm text-primary text-center md:text-left">
-                © 2022–2026 HIG Inc. All rights reserved.
-              </h1>
-            </div>
-            <div className="flex justify-center md:justify-end order-1 md:order-2">
-              <h1 className="text-xs md:text-base text-[#D9D9D9] text-center md:text-right">
-                Denver, CO • Dover, DE • Chicago, IL • Vancouver, BC
-              </h1>
-            </div>
+
+          {/* Divider */}
+          <div className="w-full h-px bg-[#555370]" />
+
+          {/* Copyright bar */}
+          <div className="w-full flex flex-col md:flex-row md:justify-between gap-3 md:gap-0">
+            <h1 className="text-xs md:text-sm text-primary text-center md:text-left">
+              © 2022–2026 HIG Inc. All rights reserved.
+            </h1>
+            <h1 className="text-xs md:text-sm text-[#D9D9D9] text-center md:text-right">
+              Denver, CO • Dover, DE • Chicago, IL • Vancouver, BC
+            </h1>
           </div>
         </Container>
       </footer>

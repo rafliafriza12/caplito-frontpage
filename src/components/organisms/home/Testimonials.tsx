@@ -10,33 +10,28 @@ import Marquee from "react-fast-marquee";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const MAX_CHAR = 35;
-
 const Testimonials: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const featuresRef = useRef<HTMLDivElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [showMetaIndex, setShowMetaIndex] = useState<number | null>(null);
-  // const [height, setHeight] = useState<boolean>(false);
-  // const [date, setDate] = useState<boolean>(false);
-  // const [text, setText] = useState<boolean>(false);
-  // const [person, setPerson] = useState<boolean>(false);
 
-  // const handleEnter = (i: number) => {
-  //   setHoveredIndex(i);
+  const handleEnter = (i: number) => {
+    setHoveredIndex(i);
+  };
 
-  //   setHeight(hoveredIndex === i);
-  //   // tunggu height expand dulu baru munculkan meta
-  //   setTimeout(() => {
-  //     setpe(i);
-  //   }, 250); // setengah dari duration 500ms
-  // };
+  const handleLeave = () => {
+    setHoveredIndex(null);
+  };
 
-  // const handleLeave = () => {
-  //   setHoveredIndex(null);
-  //   setShowMetaIndex(null);
-  // };
+  const handleTouchStart = (e: React.TouchEvent, i: number) => {
+    e.preventDefault();
+    if (hoveredIndex === i) {
+      handleLeave();
+    } else {
+      handleEnter(i);
+    }
+  };
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -266,15 +261,18 @@ const Testimonials: React.FC = () => {
             pauseOnHover
           >
             {testimonialData.map((item: ITestimonial, i: number) => {
+              const isActive = hoveredIndex === i;
               return (
                 <div
                   key={i}
-                  onMouseEnter={() => setHoveredIndex(i)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                  className="relative flex items-end gap-3 mr-8 cursor-pointer h-16 group duration-300 select-none touch-manipulation"
+                  onMouseEnter={() => handleEnter(i)}
+                  onMouseLeave={handleLeave}
+                  onTouchStart={(e) => handleTouchStart(e, i)}
+                  className={`relative flex items-end gap-2 sm:gap-3 mr-5 sm:mr-8 cursor-pointer h-12 sm:h-16 duration-300 select-none touch-manipulation ${isActive ? "group" : ""}`}
+                  style={{ zIndex: isActive ? 50 : 1 }}
                 >
                   {/* Avatar */}
-                  <div className="w-12 h-12 rounded-full overflow-hidden relative shrink-0  shadow-md z-10">
+                  <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-full overflow-hidden relative shrink-0 shadow-md z-10">
                     <Image
                       src={item.person.imgUrl}
                       alt={item.person.name}
@@ -285,28 +283,24 @@ const Testimonials: React.FC = () => {
 
                   {/* Card */}
                   <div
-                    className={`bg-[#FAFAFA] border border-[#EAEAEA]/60 rounded-3xl px-6 py-4 w-80 overflow-hidden transition-all duration-500  max-h-14 group-hover:max-h-60 relative z-0`}
+                    className={`bg-[#FAFAFA] border border-[#EAEAEA]/60 rounded-2xl sm:rounded-3xl px-4 sm:px-6 py-3 sm:py-4 w-56 sm:w-80 overflow-hidden transition-all duration-500 max-h-11 sm:max-h-14 group-hover:max-h-60 relative z-0`}
                   >
                     <div className="flex flex-col gap-2 overflow-hidden">
                       {/* DATE */}
                       <p
-                        className={`text-xs text-gray-500 transition-opacity duration-100 absolute opacity-0 group-hover:opacity-100`}
+                        className={`text-[10px] sm:text-xs text-gray-500 transition-opacity duration-100 absolute opacity-0 group-hover:opacity-100`}
                       >
                         {item.date}
                       </p>
 
                       {/* COMMENT */}
-                      <p className="text-sm text-[#2C2C2C] leading-relaxed pt-0 duration-300 group-hover:pt-5 pb-10 ">
-                        {/* {isHover
-                          ? item.comment
-                          : item.comment.slice(0, MAX_CHAR) +
-                            (item.comment.length > MAX_CHAR ? "..." : "")} */}
-                        {item.comment}{" "}
+                      <p className="text-xs sm:text-sm text-[#2C2C2C] leading-relaxed pt-0 duration-300 group-hover:pt-5 pb-8 sm:pb-10">
+                        {item.comment}
                       </p>
 
                       {/* NAME + ROLE */}
                       <p
-                        className={` text-sm text-[#2C2C2C]  duration-300  absolute z-0 bottom-0 h-5 group-hover:h-8 bg-[#fafafa] group-hover:bg-linear-to-t from-[#fafafa] to-[#fafafa]/70 w-full overflow-hidden`}
+                        className={`text-[10px] sm:text-sm text-[#2C2C2C] duration-300 absolute z-0 bottom-0 h-2 md:h-5 group-hover:h-8 bg-[#fafafa] group-hover:bg-linear-to-t from-[#fafafa] to-[#fafafa]/70 w-full overflow-hidden`}
                       >
                         <span className="font-medium duration-300 opacity-0 group-hover:opacity-100">
                           — {item.person.name}

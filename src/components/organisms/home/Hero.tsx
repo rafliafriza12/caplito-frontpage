@@ -103,7 +103,7 @@ export function Hero() {
               />
             </svg>
           </div>
-          <h1 className="font-medium text-[24px] text-[#1F1F1F]">@you</h1>
+          <h1 className="font-medium text-[24px] text-[#1F1F1F]">you</h1>
         </div>
 
         <div
@@ -302,7 +302,7 @@ export function Hero() {
         >
           <button className="bg-[#6C5CE7] rounded-full w-full sm:w-auto sm:min-w-52 ipad-horizontal:w-63.75 h-12 md:h-14">
             <h1 className="leading-[120%] text-base md:text-lg font-bold tracking-[-0.7px] text-primary">
-              Send or Receive $1 Now
+              Click to Send or Receive $1
             </h1>
           </button>
           {/* <button className="bg-primary border border-[#6C5CE7] rounded-full w-full sm:w-auto sm:min-w-52 ipad-horizontal:w-63.75 h-12 md:h-14 flex items-center justify-center gap-1">
